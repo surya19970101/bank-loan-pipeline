@@ -17,3 +17,8 @@ Uploaded to **GCS Bucket** for pipeline ingestion.
 ---
 
 ## Folder Structure
+
+## Day 2 Progress
+- Created Cloud Storage bucket for raw data
+- Created BigQuery dataset for credit risk analysis
+- Built initial GCS → BigQuery Python pipeline

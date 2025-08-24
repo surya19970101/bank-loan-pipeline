@@ -1,4 +1,4 @@
-# GCP project & region
+# GCP projecregion
 project_id: bank-loan-analytics        # e.g., bank-loan-analytics-12345
 region: asia-south1                        # keep same region across services
 
