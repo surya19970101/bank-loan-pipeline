@@ -22,3 +22,13 @@ Uploaded to **GCS Bucket** for pipeline ingestion.
 - Created Cloud Storage bucket for raw data
 - Created BigQuery dataset for credit risk analysis
 - Built initial GCS → BigQuery Python pipeline
+
+## Project Progress
+
+Step 1: Dataset selected (Credit Risk dataset from Kaggle)
+Step 2: Data uploaded to Google Cloud Storage and ingested into BigQuery
+Step 3: Transformation layer setup (dbt/SQL workflows)
+Step 4: Orchestration pipeline (Cloud Composer/Airflow)
+Step 5: Visualization and final outputs
+
+## Step 1 and Step 2 done.
