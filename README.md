@@ -1,34 +1,86 @@
-# Credit Risk Prediction Pipeline (GCP BigQuery + Dataflow)
+# Credit Risk Prediction Pipeline (GCP BigQuery + Cloud Composer)
 
-## Overview
-This project demonstrates how to build a scalable data pipeline on **Google Cloud Platform** for credit risk prediction.
-It uses:
-- **BigQuery** for data storage and transformations
-- **Dataflow** for ETL
-- **Python** for preprocessing & modeling
-- **Looker Studio** for visualization
+## 📖 Overview
+This project demonstrates how to build a **scalable, automated data pipeline** on **Google Cloud Platform (GCP)** for credit risk analysis.  
+It covers data ingestion, transformation, orchestration, and visualization using cloud-native tools.
 
----
-
-## Dataset
-Source: [Kaggle Credit Risk Dataset](https://www.kaggle.com/)  
-Uploaded to **GCS Bucket** for pipeline ingestion.
+### Tools & Technologies Used:
+- **Google Cloud Storage (GCS)** – for storing raw data files
+- **BigQuery** – for data warehousing and SQL-based transformations
+- **Cloud Composer (Apache Airflow)** – for orchestrating and scheduling workflows
+- **Python** – for data preprocessing and pipeline automation
+- **Looker Studio** – for creating dashboards and visual insights
 
 ---
 
-## Folder Structure
+## 📂 Dataset
+- **Source**: [Kaggle Credit Risk Dataset](https://www.kaggle.com/)  
+- **Purpose**: Analyze loan applications and defaults to predict credit risk
+- **Processing**: Uploaded to a GCS bucket and ingested into BigQuery for further transformations
 
-## Day 2 Progress
-- Created Cloud Storage bucket for raw data
-- Created BigQuery dataset for credit risk analysis
-- Built initial GCS → BigQuery Python pipeline
+---
 
-## Project Progress
+## 🗂 Folder Structure
 
-Step 1: Dataset selected (Credit Risk dataset from Kaggle)
-Step 2: Data uploaded to Google Cloud Storage and ingested into BigQuery
-Step 3: Transformation layer setup (dbt/SQL workflows)
-Step 4: Orchestration pipeline (Cloud Composer/Airflow)
-Step 5: Visualization and final outputs
+bank-loan-pipeline/
+├── dags/
+│ └── bank_loan_pipeline.py # Airflow DAG definition
+├── data/
+│ └── credit_risk.csv # Raw dataset (optional or reference)
+├── sql/
+│ ├── 01_staging.sql # Data cleaning and standardization
+│ ├── 03_curated.sql # Final loan applications table
+│ └── 04_views_kpis.sql # KPI and analytical views
+└── README.md # Project documentation
 
-## Step 1 and Step 2 done.
+
+---
+
+## ✅ Project Workflow & Milestones
+
+### **Day 1 – Setup**
+- Selected the Credit Risk dataset from Kaggle
+- Defined the folder structure and configured the environment
+- Created initial Python scripts to handle data upload and ingestion
+
+### **Day 2 – Cloud Infrastructure**
+- Created GCS bucket to store raw credit risk data
+- Created BigQuery dataset and tables for structured data storage
+- Uploaded data from GCS into BigQuery using Airflow DAGs
+- Implemented staging and curated data layers
+
+### **Day 3 – Transformations & Insights**
+- Created `stg_credit_risk` to clean, standardize, and format raw data
+- Designed `loans_curated` table partitioned by ingestion date and clustered for performance
+- Built analytical views to measure KPIs:
+  - `v_kpi_overall`: default rates and loan distributions
+  - `v_default_by_intent`: loan defaults by loan purpose
+  - `v_default_by_risk_bucket`: risk analysis across different customer segments
+
+### Next Steps
+- Integrate Looker Studio for visualization
+- Extend the pipeline for automated retraining and predictions
+
+---
+
+## 🚀 How to Run This Project
+1. Upload the raw dataset (`credit_risk.csv`) to the `/data/` folder in your Composer environment.
+2. Verify that the GCS bucket and BigQuery dataset are configured.
+3. Trigger the `bank_loan_pipeline` DAG from the Airflow UI.
+4. Monitor the logs to ensure each task completes successfully.
+5. Explore transformed tables and views in BigQuery.
+
+---
+
+## 📈 Key Learnings
+- How to build end-to-end data pipelines using cloud services
+- Best practices for data partitioning and clustering in BigQuery
+- Orchestrating workflows with Cloud Composer
+- Handling permissions, debugging, and monitoring cloud-based pipelines
+
+---
+
+## 📂 Repository
+[GitHub Repository Link](https://github.com/your-username/bank-loan-pipeline) *(replace with actual link)*
+
+---
