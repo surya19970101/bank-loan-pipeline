@@ -1,7 +1,6 @@
 CREATE OR REPLACE TABLE `credit_risk.loan_applications_stg` AS
 WITH base AS (
   SELECT
-    -- Generate a stable surrogate key based on key attributes
     FARM_FINGERPRINT(
       CONCAT(
         COALESCE(CAST(person_age AS STRING), ''),
@@ -13,7 +12,6 @@ WITH base AS (
       )
     ) AS loan_sk,
 
-    -- Numeric casts with SAFE_CAST to avoid query failures
     SAFE_CAST(person_age AS INT64)                         AS person_age,
     SAFE_CAST(person_income AS INT64)                      AS person_income,
     SAFE_CAST(person_emp_length AS INT64)                  AS person_emp_length,
@@ -22,13 +20,11 @@ WITH base AS (
     SAFE_CAST(loan_percent_income AS FLOAT64)              AS loan_percent_income,
     SAFE_CAST(cb_person_cred_hist_length AS INT64)         AS cb_person_cred_hist_length,
 
-    -- Categorical cleanup
     UPPER(TRIM(loan_intent))                               AS loan_intent,
     UPPER(TRIM(loan_grade))                                AS loan_grade,
     UPPER(TRIM(person_home_ownership))                     AS person_home_ownership,
     UPPER(TRIM(CAST(cb_person_default_on_file AS STRING))) AS cb_person_default_on_file,
 
-    -- Status: many datasets use 1/0 or 'Y'/'N' for default; normalize to BOOL
     CASE
       WHEN LOWER(CAST(loan_status AS STRING)) IN ('1','y','yes','true','default','defaulter') THEN TRUE
       WHEN LOWER(CAST(loan_status AS STRING)) IN ('0','n','no','false','paid','good') THEN FALSE
