@@ -1,7 +1,7 @@
 import pandas as pd
 from google.cloud import storage, bigquery
 
-# Update these with your details
+# GCP details
 PROJECT_ID = "bank-loan-analytics"
 BUCKET_NAME = "credit-risk-data-surya"
 DATASET_ID = "credit_risk"
@@ -31,7 +31,7 @@ def load_to_bigquery():
 
     uri = f"gs://{BUCKET_NAME}/credit_risk_dataset.csv"
     load_job = bq_client.load_table_from_uri(uri, table_ref, job_config=job_config)
-    load_job.result()  # Waits for job to complete
+    load_job.result()
 
     print(f"✅ Data loaded into BigQuery table: {table_ref}")
 

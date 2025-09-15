@@ -1,26 +1,22 @@
 # GCP projecregion
-project_id: bank-loan-analytics        # e.g., bank-loan-analytics-12345
-region: asia-south1                        # keep same region across services
+project_id: bank-loan-analytics        
+region: asia-south1                        
 
 # Google Cloud Storage settings
 gcs:
-  bucket: bank-loan-data-suraj             # the bucket you already created
-  raw_prefix: data/raw/                    # folder/prefix for raw uploads
-  processed_prefix: data/processed/        # folder/prefix for cleaned files
+  bucket: asia-south1-bank-loan-pipel-2d7d7a70-bucket            
+  raw_prefix: data/                   
 
 # BigQuery settings
 bigquery:
-  dataset: bank_loan                       # create this dataset in BQ
-  staging_table: staging_loans             # raw load table
-  curated_table: loans_curated             # transformed table
-  partition_field: application_date        # choose an existing DATE/TIMESTAMP column
-  clustering_fields: [loan_status, state]  # optional but useful for performance
+  dataset: credit_risk                       
+  staging_table: loan_applications_stg            
+  curated_table: loan_applications_curated             
 
-# Airflow / Composer (optional for now; we’ll use it later)
+# Airflow / Composer
 composer:
-  dag_name: bank_loan_daily_etl
+  dag_name: bank_loan_pipeline
 
 # Paths inside this repo (helps scripts & DAGs find assets)
 paths:
-  schema_file: sql/bq_schema_loans.json    # optional JSON schema file (we'll add later)
-  transform_sql: sql/transform_loans.sql   # your main transformation SQL
+  transform_sql: sql/01_staging.sql   
