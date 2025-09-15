@@ -81,6 +81,6 @@ bank-loan-pipeline/
 ---
 
 ## 📂 Repository
-[GitHub Repository Link](https://github.com/your-username/bank-loan-pipeline) *(replace with actual link)*
+[GitHub Repository Link](https://github.com/surya19970101/bank-loan-pipeline)
 
 ---
