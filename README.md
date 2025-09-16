@@ -12,14 +12,13 @@ We are using:
 - **Google Cloud Storage (GCS)** for raw file storage
 - **Looker Studio** for dashboards and visualization
 
-Additionally, we are working on scalability by simulating increasing data volumes using scheduled data generation.
+Additionally, I am working on scalability by simulating increasing data volumes using scheduled data generation.
 
 ---
 
 ## Architecture Diagram
 
-![Credit Risk Pipeline Architecture](A_digital_diagram_in_the_image_illustrates_a_Credi.png)
-
+![Credit Risk Data Engineering Architecture](architecture.png)
 ---
 
 ## Pipeline Structure
