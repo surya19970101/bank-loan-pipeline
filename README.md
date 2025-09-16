@@ -100,3 +100,7 @@ Stored in: **Google Cloud Storage bucket** and ingested into **BigQuery**.
 4. Explore data via **BigQuery** and create dashboards in **Looker Studio**.
 
 ---
+## Looker Studio Report
+[Credit Risk Report](https://lookerstudio.google.com/reporting/15c2bbb6-11c0-4d61-84eb-606f1c06beee)
+
+---
